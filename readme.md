@@ -3,7 +3,7 @@
 Projeto desenvolvido para treinar e solidificar conhecimentos em JavaScript, Manipulação de DOM e estruturação de arquitetura de software.
 
 <div align="center">
-   <img src="https://via.placeholder.com/600x300?text=Print+do+Projeto" alt="Imagem do Projeto" width="100%">
+   <img width="1915" height="939" alt="Imagem do projeto" src="https://github.com/user-attachments/assets/17d8a96f-1403-419e-93ec-0e97e7623f7b" />
 </div>
 
 ##  Objetivo
