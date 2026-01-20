@@ -1,0 +1,98 @@
+ *{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    caret-color: transparent;
+}
+
+body{
+    background-image: url("https://images.pexels.com/photos/210186/pexels-photo-210186.jpeg?cs=srgb&dl=dawn-landscape-nature-210186.jpg&fm=jpg");
+}
+
+header{
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    border: 3px solid black;
+    border-radius: 25px;
+    background: white transparent;
+    backdrop-filter: blur(10px);
+}
+
+.container{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.formProdutos{
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 400px;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    gap: 10px;
+    background: white transparent;
+    backdrop-filter: blur(10px);
+}
+
+.formProdutos h2{
+    align-self: center;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.nomeProd{
+    padding: 5px;
+    height: 2rem;
+    caret-color: auto;
+}
+
+.descProd{
+  height: 5rem;
+  padding: 5px;
+  cursor: text;
+  resize: none;
+  caret-color: auto;
+}
+
+.precoProd{
+    padding: 5px;
+    height: 2rem;
+    caret-color: auto;
+}
+
+input::placeholder, textarea::placeholder, .salvarButton{
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    caret-color: transparent;
+}
+
+.tabela{
+    margin: 20px;
+    width: 600px;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    border: 2px solid black;
+}
+
+td{
+    text-align: center;
+}
+
+.editButton, .deleteButton{
+    text-decoration: none;
+}
