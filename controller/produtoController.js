@@ -7,6 +7,8 @@ export class ProdutoController {
         this.listaProdutos = new listaProdutos();
         this.produtoView = new ProdutoView();
 
+        this.idEdicao = null;
+
         this.inputNome = document.querySelector('.nomeProd');
         this.inputPreco = document.querySelector('.precoProd');
         this.inputDesc = document.querySelector('.descProd');
@@ -22,6 +24,15 @@ export class ProdutoController {
 
                 this.removerProduto(idRemover, event.target);
             }
+
+            if (event.target.classList.contains('editButton')) {
+                event.preventDefault();
+
+                const idEditar = Number(event.target.dataset.id);
+                console.log("Clicou para editar - ID:", idEditar);
+
+                this.editarProduto(event);
+            }
         })
     }
 
@@ -32,13 +43,24 @@ export class ProdutoController {
         const preco = this.inputPreco.value;
         const descricao = this.inputDesc.value;
 
-        const novoProduto = new Produto(nome, preco, descricao);
+        if(this.idEdicao !== null) {
 
-        this.listaProdutos.adicionar(novoProduto);
-        console.log('Produto criado');
-        console.log(nome, preco, descricao, this.listaProdutos.listar());
 
-        this.produtoView.adicionarTabela(novoProduto);
+            this.listaProdutos.editar(this.idEdicao, nome, preco, descricao);
+
+            this.idEdicao = null;
+
+        } else{
+            const novoProduto = new Produto(nome, preco, descricao);
+
+            this.listaProdutos.adicionar(novoProduto);
+            console.log('Produto criado');
+            console.log(nome, preco, descricao, this.listaProdutos.listar());
+        }
+
+        document.querySelector('.tituloFormulario').textContent = "Adicionar um produto";
+        const tabelaAtualizada = this.listaProdutos.listar();
+        this.produtoView.atualizarTabela(tabelaAtualizada);
         this.produtoView.limparFormulario();
 
     }
@@ -48,5 +70,21 @@ export class ProdutoController {
         elementoBotao.closest("tr").remove();
 
         console.log("Lista atualizada após remoção: ", this.listaProdutos.listar());
+    }
+
+    editarProduto(event) {
+        event.preventDefault();
+
+        document.querySelector('.tituloFormulario').textContent = "Editar Produto";
+
+        const id = Number(event.target.dataset.id);
+
+        const produto = this.listaProdutos.produtos.find(prod => prod.id === id);
+
+        this.inputNome.value = produto.nome;
+        this.inputPreco.value = produto.preco;
+        this.inputDesc.value = produto.descricao;
+
+        this.idEdicao = id;
     }
 }

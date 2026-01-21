@@ -20,6 +20,15 @@ export class listaProdutos {
         this.produtos = this.produtos.filter(prod => prod.id !== prod.id);
     }
 
+    editar(id, nome, preco, descricao) {
+        const produto = this.produtos.find(prod => prod.id === id);
+        if (produto) {
+            produto.nome = nome;
+            produto.preco = preco;
+            produto.descricao = descricao;
+        }
+    }
+
     listar() {
         return this.produtos;
     }

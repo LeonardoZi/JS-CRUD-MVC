@@ -3,6 +3,14 @@ export class ProdutoView {
         this.listaProdutos = document.querySelector(".listaProdutos");
     }
 
+    atualizarTabela(listaProdutos) {
+        this.listaProdutos.innerHTML = '';
+
+        listaProdutos.forEach(produto => {
+            this.adicionarTabela(produto);
+        })
+    }
+
     adicionarTabela(produto) {
         const novaLinha = `
         <tr>
@@ -10,7 +18,7 @@ export class ProdutoView {
             <td>${produto.descricao}</td>
             <td>R$ ${produto.preco}</td>
             <td>
-                <a class="editButton" href="#" style="background-color: rgb(240, 224, 82); color:black; padding: 2px; border-radius: 5px;">Editar</a>
+                <a class="editButton" href="#" data-id="${produto.id}" style="background-color: rgb(240, 224, 82); color:black; padding: 2px; border-radius: 5px;">Editar</a>
                 <a class="deleteButton" href="#" data-id="${produto.id}" style="background-color: rgb(230, 84, 84); color:black; padding: 2px; border-radius: 5px;">Remover</a>
             </td>
         </tr>
